@@ -13,7 +13,6 @@ yum install nginx -y &>> "/tmp/${COMPONENT}.log"
 
 if [ $? -eq 0 ] ; then
     echo -n "\e[32m success \e[0m"
-    exit 1
 else
     echo -n "\e[31m failure \e[0m"
 fi
