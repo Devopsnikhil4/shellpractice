@@ -34,6 +34,7 @@ status $?
 
 echo -n "Unziping the ${COMPONENT} zip file :"
 unzip /tmp/${COMPONENT}.zip  &>> INandOUT
+mv ${COMPONENT}-main/* .
 mv static/* . &>> INandOUT
 rm -rf ${COMPONENT}-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
