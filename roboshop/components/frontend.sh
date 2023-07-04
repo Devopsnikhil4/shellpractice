@@ -41,6 +41,6 @@ mv localhost.conf /etc/nginx/default.d/roboshop.conf
 status $?
 
 echo -n "Starting the ${COMPONENT} service :"
-systemctl enable nginx
-systemctl start nginx
+systemctl enable nginx &>> INandOUT
+systemctl start nginx &>> INandOUT
 status $?
