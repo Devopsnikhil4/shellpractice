@@ -24,3 +24,12 @@ if [ $? -eq 0 ] ; then
 else
     echo -e "\e[31m failure \e[0m"
 fi
+
+echo -n "cleaning the file deleating the exisisting content in file"
+cd /usr/share/nginx/html
+rm -rf *
+if [ $? -eq 0 ] ; then
+    echo -e "\e[32m success \e[0m"
+else
+    echo -e "\e[31m failure \e[0m"
+fi
