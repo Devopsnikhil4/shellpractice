@@ -2,6 +2,7 @@
 
 COMPONENT=frontend
 ID=$(id -u)
+INandOUT="/tmp/${COMPONENT}.log"
 
 
 if [ $ID -ne 0 ] ; then
@@ -19,15 +20,23 @@ status(){
 }
 
 echo -n "Installing Nginx :"
-yum install nginx -y &>> "/tmp/${COMPONENT}.log"
+yum install nginx -y &>> INandOUT
 status $?
 
-echo -n "Dowloading the frontend zip file :"
-curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
+echo -n "Dowloading the ${COMPONENT} zip file :"
+curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
 status $?
 
 echo -n "cleaning the file deleting the exisisting content in file"
-cd /usr/share/nginx/html "/tmp/${COMPONENT}.log"
+cd /usr/share/nginx/html &>> INandOUT
 rm -rf *
 status $?
+
+echo -n "Unziping the ${COMPONENT} zip file :"
+unzip /tmp/${COMPONENT}.zip  &>> INandOUT
+mv static/* . &>> INandOUT
+rm -rf ${COMPONENT}-main README.md
+mv localhost.conf /etc/nginx/default.d/roboshop.conf
+status $?
+
 
