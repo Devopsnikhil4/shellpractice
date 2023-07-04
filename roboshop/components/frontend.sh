@@ -1,3 +1,2 @@
-#!/bin/bahs
+#!/bin/bash
 
-echo -n "welcome to devops"
