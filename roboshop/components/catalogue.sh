@@ -42,7 +42,7 @@ status $?
 
 echo -n "copying the $COMPONENT to $APPUSER home directory :"
 cd /home/$APPUSER
-rm -rf ${COMPONENT} &>> INandOUT
+rm -rf $COMPONENT &>> INandOUT
 unzip -o /tmp/catalogue.zip &>> INandOUT
 status $?
 
