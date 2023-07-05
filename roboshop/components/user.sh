@@ -42,9 +42,9 @@ npm install  &>> INandOUT
 status $?
 
 echo -n "Updatating the systemD with REDIS and  MONGODB Endpoints :"
-sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/$APPUSER/user/systemd.service
-sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/$APPUSER/user/systemd.service
-mv /home/$APPUSER/user/systemd.service /etc/systemd/system/user.service
+sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
+sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
+mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
 status $?
 
 echo -n "Starting the ${COMPONENT} service :"
