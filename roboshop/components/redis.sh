@@ -13,3 +13,13 @@ echo -n "Installing $COMPONENT :"
 yum install $COMPONENT-6.2.11 -y  &>> INandOUT
 status $?
 
+echo -n "Update the BindIP from 127.0.0.1 to 0.0.0.0 in config file :"
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+status $?
+
+echo -n "starting the $COMPONENT :"
+systemctl daemon-reload $COMPONENT   &>> INandOUT
+systemctl enable $COMPONENT          &>> INandOUT
+systemctl restart $COMPONENT         &>> INandOUT
+status $?
+
