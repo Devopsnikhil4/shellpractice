@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 COMPONENT="cart"
 APPUSER="roboshop"
 
