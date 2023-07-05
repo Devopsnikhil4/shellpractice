@@ -45,6 +45,11 @@ cd /home/$APPUSER
 unzip -o /tmp/catalogue.zip &>> INandOUT
 status $?
 
+echo -n "Moving the $COMPONENT-main to $COMPONENT :"
+mv catalogue-main catalogue
+cd /home/roboshop/catalogue
+status $?
+
 
 
 
