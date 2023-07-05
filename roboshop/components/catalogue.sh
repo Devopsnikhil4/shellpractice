@@ -47,7 +47,11 @@ status $?
 
 echo -n "Moving the $COMPONENT-main to $COMPONENT :"
 mv $COMPONENT-main $COMPONENT
+status $?
+
+echo -n "npm install in $COMPONENT :"
 cd /home/roboshop/catalogue
+npm install
 status $?
 
 
