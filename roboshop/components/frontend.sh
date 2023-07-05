@@ -49,8 +49,9 @@ done
 status $?
 
 echo -n "Starting the ${COMPONENT} service :"
-systemctl enable nginx &>> INandOUT
-systemctl start nginx &>> INandOUT
+systemctl daemon-reload     &>> INandOUT
+systemctl enable nginx      &>> INandOUT
+systemctl start nginx       &>> INandOUT
 status $?
 
 echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******"
