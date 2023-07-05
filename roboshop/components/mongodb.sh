@@ -24,6 +24,10 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans
 status $?
 
 echo -n "Installing $COMPONENT :"
-yum install -y mongodb-org  &>> INandOUT
+yum install -y $COMPONENT-org  &>> INandOUT
 status $?
 
+echo -n "starting the $COMPONENT :"
+systemctl enable mongod  &>> INandOUT
+systemctl start mongod   &>> INandOUT
+status $?
