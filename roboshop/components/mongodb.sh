@@ -42,7 +42,7 @@ status $?
 
 echo -n "Extracting the $COMPONENT schema zipfile :"
 cd /tmp
-unzip mongodb.zip    &>> INandOUT
+unzip -o mongodb.zip    &>> INandOUT
 status $?
 
 echo -n "Injecting the $COMPONENT schema zipfile :"
