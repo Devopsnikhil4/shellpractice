@@ -24,6 +24,10 @@ echo -n "Configuring $COMPONENT repo :"
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> INandOUT
 status $?
 
+echo -n "Installing NodeJs :"
+yum install nodejs -y &>> INandOUT
+status $?
+
 
 
 
