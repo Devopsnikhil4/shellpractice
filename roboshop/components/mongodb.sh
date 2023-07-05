@@ -18,6 +18,8 @@ status(){
     fi
 }
 
+echo -n "******" \e[34m $COMPONENT Instatllation is Started \e[0m******"
+
 echo -n "Configuring $COMPONENT repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
 status $?
@@ -50,3 +52,5 @@ cd $COMPONENT-main
 mongo < catalogue.js &>> INandOUT
 mongo < users.js     &>> INandOUT
 status $?
+
+echo -n "******" \e[34m $COMPONENT Instatllation is Completed \e[0m******"
