@@ -4,7 +4,6 @@ COMPONENT=mongodb
 ID=$(id -u)
 INandOUT="/tmp/${COMPONENT}.log"
 
-
 if [ $ID -ne 0 ] ; then
    echo -e "\e[31m This script is expected to be run by a root user or with a sudo privilage \e[0m"
    exit 1
@@ -37,3 +36,17 @@ systemctl enable mongod          &>> INandOUT
 systemctl restart mongod         &>> INandOUT
 status $?
 
+echo -n "Downloading the $COMPONENT schema zipfile :"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+status $?
+
+echo -n "Extracting the $COMPONENT schema zipfile :"
+cd /tmp
+unzip mongodb.zip    &>> INandOUT
+status $?
+
+echo -n "Injecting the $COMPONENT schema zipfile :"
+cd $COMPONENT-main
+mongo < catalogue.js &>> INandOUT
+mongo < users.js     &>> INandOUT
+status $?
