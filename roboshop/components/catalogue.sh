@@ -1,8 +1,10 @@
 #!/bin/bash
 
 COMPONENT=catalogue
-ID=$(id -u)
 INandOUT="/tmp/${COMPONENT}.log"
+APPUSER="roboshop"
+
+ID=$(id -u)
 
 if [ $ID -ne 0 ] ; then
    echo -e "\e[31m This script is expected to be run by a root user or with a sudo privilage \e[0m"
@@ -28,10 +30,10 @@ echo -n "Installing the nodejs :"
 yum install nodeJS -y &>> INandOUT
 status $?
 
-id roboshop
+id $APPUSER
 if [ $? ne 0 ] ; then
-echo -n "creating the user account :"
-useradd roboshop
+echo -n "creating the user account roboshop  :"
+useradd $APPUSER
 status $?
 fi
 
