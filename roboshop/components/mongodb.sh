@@ -23,3 +23,7 @@ echo -n "Configuring $COMPONENT repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo  &>> INandOUT
 status $?
 
+echo -n "Installing $COMPONENT :"
+yum install -y mongodb-org  &>> INandOUT
+status $?
+
