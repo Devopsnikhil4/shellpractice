@@ -30,12 +30,7 @@ echo -n "Installing the nodejs :"
 yum install nodeJS -y &>> INandOUT
 status $?
 
-id $APPUSER
-if [ $? ne 0 ] ; then
-echo -n "creating the user account roboshop  :"
-useradd $APPUSER
-status $?
-fi
+
 
 
 
