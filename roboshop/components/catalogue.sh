@@ -2,6 +2,6 @@
 
 COMPONENT="catalogue"
 
-Source components/common.sh
+source components/common.sh
 
 NODEJS
