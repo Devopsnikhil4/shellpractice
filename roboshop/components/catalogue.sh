@@ -1,5 +1,6 @@
 #!/bin/bash
 
+APPUSER="roboshop"
 COMPONENT=catalogue
 ID=$(id -u)
 INandOUT="/tmp/${COMPONENT}.log"
@@ -28,10 +29,12 @@ echo -n "Installing NodeJs :"
 yum install nodejs -y &>> INandOUT
 status $?
 
-echo -n "Addind the service account :"
-useradd roboshop
-status $?
-
+id $APPUSER
+if [ $? -ne 0 ] ; then
+    echo -n "Addind the service account :"
+    useradd $APPUSER &>> INandOUT
+    status $?
+fi
 
 
 
