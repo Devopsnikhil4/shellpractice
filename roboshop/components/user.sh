@@ -41,16 +41,3 @@ cd /home/$APPUSER/$COMPONENT
 npm install  &>> INandOUT
 status $?
 
-echo -n "Updatating the systemD file REDIS and  MONGODB Endpoints :"
-sed -i -e 's/REDIS_ENDPOINT/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
-sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
-mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
-status $?
-
-echo -n "Starting the ${COMPONENT} service :"
-systemctl daemon-reload       &>> INandOUT
-systemctl enable $COMPONENT   &>> INandOUT
-systemctl restart $COMPONENT  &>> INandOUT
-status $?
-
-echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******"
