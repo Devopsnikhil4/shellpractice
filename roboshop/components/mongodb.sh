@@ -7,7 +7,7 @@ source components/common.sh
 echo -e "****** \e[34m $COMPONENT Instatllation is Started \e[0m******"
 
 echo -n "Configuring $COMPONENT repo :"
-curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
+curl -s -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/mongo.repo
 status $?
 
 echo -n "Installing $COMPONENT :"
@@ -25,12 +25,12 @@ systemctl restart mongod         &>> INandOUT
 status $?
 
 echo -n "Downloading the $COMPONENT schema zipfile :"
-curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 status $?
 
 echo -n "Extracting the $COMPONENT schema zipfile :"
 cd /tmp
-unzip -o mongodb.zip    &>> INandOUT
+unzip -o $COMPONENT.zip    &>> INandOUT
 status $?
 
 echo -n "Injecting the $COMPONENT schema zipfile :"
