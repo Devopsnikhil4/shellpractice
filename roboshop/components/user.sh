@@ -23,7 +23,7 @@ if [ $? -ne 0 ] ; then
 fi
 
 echo -n "Downloading the $COMPONENT zip file :"
-curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/user/archive/main.zip" &>> INandOUT
+curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip" &>> INandOUT
 status $?
 
 echo -n "copying the $COMPONENT to $APPUSER home directory :"
