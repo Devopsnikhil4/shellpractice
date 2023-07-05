@@ -52,7 +52,7 @@ status $?
 
 echo -n "npm install in $COMPONENT :"
 cd /home/$APPUSER/$COMPONENT
-npm install
+npm install  &>> INandOUT
 status $?
 
 
