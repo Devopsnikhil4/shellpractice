@@ -44,3 +44,4 @@ echo -n "Starting the ${COMPONENT} service :"
 systemctl enable nginx &>> INandOUT
 systemctl start nginx &>> INandOUT
 status $?
+
