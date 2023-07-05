@@ -28,6 +28,10 @@ echo -n "Installing NodeJs :"
 yum install nodejs -y &>> INandOUT
 status $?
 
+echo -n "Addind the service account :"
+useradd roboshop
+status $?
+
 
 
 
