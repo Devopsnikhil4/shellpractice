@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APPUSER="roboshop"
-COMPONENT=catalogue
+COMPONENT="catalogue"
 ID=$(id -u)
 INandOUT="/tmp/${COMPONENT}.log"
 
