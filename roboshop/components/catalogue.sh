@@ -21,7 +21,7 @@ status(){
 echo -e "****** \e[34m $COMPONENT Instatllation is Started \e[0m******"
 
 echo -n "Configuring $COMPONENT repo :"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> INandOUT
 status $?
 
 
