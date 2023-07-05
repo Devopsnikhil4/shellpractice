@@ -59,7 +59,8 @@ NPM_INSTALL() {
 CONFIGURATION_SVC(){
 
 echo -n "Updatating the $COMPONENT systemd file :"
-sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
+sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
 sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
 mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
 status $?
