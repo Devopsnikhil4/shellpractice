@@ -37,8 +37,10 @@ if [ $? -ne 0 ] ; then
 fi
 
 ehco -n "Downloading the $COMPONENT zip file :"
-curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip" 
+curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip" &>> INandOUT
 status $?
+
+
 
 
 
