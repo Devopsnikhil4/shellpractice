@@ -36,6 +36,10 @@ if [ $? -ne 0 ] ; then
     status $?
 fi
 
+ehco -n "Downloading the $COMPONENT zip file :"
+curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip" 
+status $?
+
 
 
 
