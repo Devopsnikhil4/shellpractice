@@ -1,10 +1,8 @@
 #!/bin/bash
 
 COMPONENT=catalogue
-INandOUT="/tmp/${COMPONENT}.log"
-
-
 ID=$(id -u)
+INandOUT="/tmp/${COMPONENT}.log"
 
 if [ $ID -ne 0 ] ; then
    echo -e "\e[31m This script is expected to be run by a root user or with a sudo privilage \e[0m"
@@ -21,15 +19,6 @@ status(){
 }
 
 echo -e "****** \e[34m $COMPONENT Instatllation is Started \e[0m******"
-
-echo -n "Configuring $COMPONENT repo :"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> INandOUT
-status $?
-
-echo -n "Installing the nodeJS :"
-yum install nodeJS -y &>> INandOUT
-status $?
-
 
 
 
