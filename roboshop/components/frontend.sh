@@ -19,6 +19,8 @@ status(){
     fi
 }
 
+echo -e "****** \e[34m $COMPONENT Instatllation is Started \e[0m******"
+
 echo -n "Installing Nginx :"
 yum install nginx -y &>> INandOUT
 status $?
@@ -45,3 +47,4 @@ systemctl enable nginx &>> INandOUT
 systemctl start nginx &>> INandOUT
 status $?
 
+echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******"
