@@ -50,7 +50,7 @@ mv $COMPONENT-main $COMPONENT
 status $?
 
 echo -n "npm install in $COMPONENT :"
-cd /home/roboshop/catalogue
+cd /home/$APPUSER/$COMPONENT
 npm install
 status $?
 
