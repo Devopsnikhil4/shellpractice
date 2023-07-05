@@ -1,6 +1,5 @@
 #!/bin/bash
 
-APPUSER="roboshop"
 ID=$(id -u)
 INandOUT="/tmp/${COMPONENT}.log"
 
