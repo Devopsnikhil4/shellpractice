@@ -2,7 +2,7 @@
 
 COMPONENT=catalogue
 INandOUT="/tmp/${COMPONENT}.log"
-APPUSER="roboshop"
+
 
 ID=$(id -u)
 
