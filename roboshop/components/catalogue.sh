@@ -25,11 +25,13 @@ curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>>
 status $?
 
 echo -n "Installing the nodejs :"
-yum install nodejs -y &>> INandOUT
+yum install nodeJS -y &>> INandOUT
 status $?
 
 echo -n "creating the user account roboshop :"
 useradd roboshop
 status $?
+
+
 
 
