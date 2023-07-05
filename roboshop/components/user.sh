@@ -23,13 +23,13 @@ if [ $? -ne 0 ] ; then
 fi
 
 echo -n "Downloading the $COMPONENT zip file :"
-curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip" &>> INandOUT
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip" &>> INandOUT
 status $?
 
 echo -n "copying the $COMPONENT to $APPUSER home directory :"
 cd /home/$APPUSER
 rm -rf $COMPONENT &>> INandOUT
-unzip /tmp/user.zip &>> INandOUT
+unzip /tmp/$COMPONENT.zip &>> INandOUT
 status $?
 
 echo -n "Moving the $COMPONENT-main to $COMPONENT :"
@@ -40,4 +40,17 @@ echo -n "npm install in $COMPONENT :"
 cd /home/$APPUSER/$COMPONENT
 npm install  &>> INandOUT
 status $?
+
+echo -n "Updatating the systemD with REDIS and  MONGODB Endpoints :"
+sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/$APPUSER/user/systemd.service
+sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/$APPUSER/user/systemd.service
+mv /home/$APPUSER/user/systemd.service /etc/systemd/system/user.service
+status $?
+
+echo -n "Starting the ${COMPONENT} service :"
+systemctl daemon-reload       &>> INandOUT
+systemctl enable $COMPONENT   &>> INandOUT
+systemctl restart $COMPONENT  &>> INandOUT
+status $?
+
 
