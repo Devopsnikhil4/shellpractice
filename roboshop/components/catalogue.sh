@@ -40,6 +40,11 @@ echo -n "Downloading the $COMPONENT zip file :"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
 status $?
 
+echo -n "copying the $COMPONENT to $APPUSER home directory :"
+cd /home/$APPUSER
+unzip -o /tmp/catalogue.zip &>> INandOUT
+status $?
+
 
 
 
