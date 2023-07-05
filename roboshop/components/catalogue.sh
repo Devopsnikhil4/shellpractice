@@ -27,3 +27,9 @@ status $?
 echo -n "Installing the nodejs :"
 yum install nodejs -y &>> INandOUT
 status $?
+
+echo -n "creating the user account roboshop :"
+useradd roboshop
+status $?
+
+
