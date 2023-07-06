@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMPONENT="catalogue"
+COMPONENT="payment"
 
 source components/common.sh
 
