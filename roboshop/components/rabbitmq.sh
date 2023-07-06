@@ -19,8 +19,11 @@ systemctl restart rabbitmq-server   &>> INandOUT
 status $?
 
 echo -n "creating the $COMPONENT $APPUSER :"
+if [ $? ne=0] ; then
 rabbitmqctl add_user roboshop roboshop123 &>> INandOUT
+fi
 status $?
+
 
 echo -n "configuring the $COMPONENT $APPUSER privilages :"
 rabbitmqctl set_user_tags roboshop administrator           &>> INandOUT
