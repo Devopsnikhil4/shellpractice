@@ -116,9 +116,9 @@ JAVA(){
 
 }
 
-PYTHON(){
+PYTHON() {
     echo -n "Installing PYTHON and its dependencies :"
-    yum install python36 gcc python3-devel -y &>> INandOUT
+    yum install python36 gcc python3-devel -y  &>> INandOUT
     status $?
 
     CREATE_USER 
@@ -127,7 +127,7 @@ PYTHON(){
 
     echo -n "Installing $COMPONENT"
     cd /home/${APPUSER}/${COMPONENT}/
-    pip3 install -r requirements.txt &>> INandOUT
+    pip3 install -r requirements.txt  &>> INandOUT
     status $?
 
 }
