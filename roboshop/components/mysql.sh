@@ -24,8 +24,7 @@ DEFAULT_ROOT_PASSWORD=$(grep 'temporary password'  /var/log/mysqld.log | awk '{p
 status $?
 
 echo -n "Perfoming password reset of root user :"
-mysql --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD &>> INandOUT
-ALTER USER 'root'@'locahost' IDENTIFIED BY 'RoboShop@1'; &>> INandOUT
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD &>> INandOUT
 status $?
 
 
