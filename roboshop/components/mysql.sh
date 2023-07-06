@@ -37,3 +37,14 @@ echo "show plugins;" | mysql -uroot -pRoboShop@1 | grep validate_password &>> IN
     status $?
 fi
 
+echo -n "Downloading the $COMPONENT zip file :"
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+status $?
+
+echo -n "Extracting the $COMPONENT zip file :"
+cd /tmp
+unzip -o /tmp/$COMPONENT.zip
+cd $COMPONENT-main
+mysql -u root -pRoboShop@1 <shipping.sql
+status $?
+
