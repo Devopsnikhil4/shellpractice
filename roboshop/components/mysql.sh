@@ -19,7 +19,7 @@ systemctl enable mysqld &>> INandOUT
 systemctl start mysqld &>> INandOUT
 status $?
 
-echo -n "Fetching the default root password by using root grep|awk :"
+echo -n "Fetching the default root password by :"
 DEFAULT_ROOT_PASSWORD=$(grep 'temporary password'  /var/log/mysqld.log | awk '{print $NF}')
 status $?
 
