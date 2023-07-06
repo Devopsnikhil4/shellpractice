@@ -94,3 +94,24 @@ NODEJS() {
     CONFIGURATION_SVC  #Configuring and starting the service
 
 }
+
+MVN_PACKAGE (){
+    echo -n "preparing $COMPONENT artifacts :"
+    cd /home/$APPUSER/$COMPONENT
+    mvn clean package &>> INandOUT
+    mv target/shipping-1.0.jar shipping.jar
+    status $?
+}
+
+JAVA(){
+    echo -e "****** \e[34m $COMPONENT Instatllation is Started \e[0m******"
+
+    echo -n "Installing Maven :"
+     yum install maven -y  &>> INandOUT
+    status $?
+
+    CREATE_USER        #Creates userid roboshop
+
+    DOWNLOAD_EXTRACT   #Dowloding and extracting the file
+
+}
