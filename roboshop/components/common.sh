@@ -127,7 +127,7 @@ PYTHON(){
 
     echo -n "Installing $COMPONENT :"
     cd /home/$APPUSER/$COMPONENT/
-    pip3 install -r requirements.txt
+    pip3 install -r requirements.txt &>> INandOUT
     status $?
 
 }
