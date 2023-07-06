@@ -18,19 +18,19 @@ systemctl enable rabbitmq-server  &>> INandOUT
 systemctl restart rabbitmq-server   &>> INandOUT
 status $?
 
-echo -n "creating the $COMPONENT $APPUSER :"
+rabbitmqctl list_users | grep roboshop &>> INandOUT
 if [ $? -ne 0 ] ; then
+echo -n "creating the $COMPONENT $APPUSER :"
 rabbitmqctl add_user roboshop roboshop123 &>> INandOUT
-fi
 status $?
-
+fi
 
 echo -n "configuring the $COMPONENT $APPUSER privilages :"
 rabbitmqctl set_user_tags roboshop administrator           &>> INandOUT
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"   &>> INandOUT
 status $?
 
-
+echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******"
 
 
 
