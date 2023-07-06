@@ -133,7 +133,7 @@ PYTHON() {
     USERID=$(id -u roboshop)
     GROUPID=$(id -g roboshop)
 
-    echo -n "Updating the uid and gid in the component file"
+    echo -n "Updating the uid and gid in the $COMPONENT.ini file"
     sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}"  /home/${APPUSER}/${COMPONENT}/${COMPONENT}.ini
     
     CONFIGURATION_SVC
