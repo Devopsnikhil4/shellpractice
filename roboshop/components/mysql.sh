@@ -30,4 +30,10 @@ echo "show databases;" | mysql -uroot -pRoboShop@1 &>> INandOUT
     status $?
 fi
 
+echo "show plugins;" | mysql -uroot -pRoboShop@1 | grep validate_password &>> INandOUT
+ if [ $? -eq 0 ] ; then
+    echo -n "Uninstalling the validate_password plugin :"
+    echo "UNINSTALL PLUGIN validate_password;" | mysql mysql -uroot -pRoboShop@1 &>> INandOUT
+    status $?
+fi
 
