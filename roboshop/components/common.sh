@@ -118,7 +118,7 @@ JAVA(){
 
 PYTHON() {
     echo -n "Installing PYTHON and its dependencies :"
-    yum install python36 gcc python3-devel -y  &>> INandOUT
+    yum install python36 gcc python3-devel -y  
     status $?
 
     CREATE_USER 
