@@ -43,8 +43,8 @@ status $?
 
 echo -n "Extracting the $COMPONENT zip file :"
 cd /tmp
-unzip -o /tmp/$COMPONENT.zip
-cd $COMPONENT-main
-mysql -u root -pRoboShop@1 <shipping.sql
+unzip -o /tmp/$COMPONENT.zip &>> INandOUT
+cd $COMPONENT-main 
+mysql -u root -pRoboShop@1 <shipping.sql &>> INandOUT
 status $?
 
