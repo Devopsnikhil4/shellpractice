@@ -29,5 +29,5 @@ echo "show databases;" | mysql -uroot -pRoboShop@1 &>> INandOUT
     echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD &>> INandOUT
     status $?
 fi
-status $?
+
 
