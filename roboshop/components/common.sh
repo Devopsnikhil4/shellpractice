@@ -115,3 +115,17 @@ JAVA(){
     DOWNLOAD_EXTRACT   #Dowloding and extracting the file
 
 }
+
+PYTHON(){
+    echo -n "Installing PYTHON and its dependencies :"
+    yum install python36 gcc python3-devel -y &>> INandOUT
+    status $?
+
+    DOWNLOAD_EXTRACT
+
+    echo -n "Installing $COMPONENT :"
+    cd /home/$APPUSER/$COMPONENT
+    pip3 install -r requirements.txt
+    status $?
+    
+}
