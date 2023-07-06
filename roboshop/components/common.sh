@@ -2,7 +2,7 @@
 
 ID=$(id -u)
 INandOUT="/tmp/${COMPONENT}.log"
-$APPUSER="roboshop"
+APPUSER="roboshop"
 
 
 if [ $ID -ne 0 ] ; then
