@@ -125,7 +125,7 @@ PYTHON(){
 
     DOWNLOAD_EXTRACT
 
-    echo -n "Installing $COMPONENT :"
+    echo -n "Installing $COMPONENT"
     cd /home/$APPUSER/$COMPONENT/
     pip3 install -r requirements.txt &>> INandOUT
     status $?
