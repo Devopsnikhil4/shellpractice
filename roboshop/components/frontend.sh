@@ -39,4 +39,4 @@ systemctl enable nginx      &>> INandOUT
 systemctl restart nginx       &>> INandOUT
 status $?
 
-echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******"
+echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******" 
