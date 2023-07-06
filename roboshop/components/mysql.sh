@@ -15,6 +15,16 @@ yum install mysql-community-server -y    &>> INandOUT
 status $?
 
 echo -n "starting the $COMPONENT :"
-systemctl enable mysqld
-systemctl start mysqld
+systemctl enable mysqld &>> INandOUT
+systemctl start mysqld &>> INandOUT
 status $?
+
+echo -n "Fetching the default root password by using root grep|awk :"
+DEFAULT_ROOT_PASSWORD=$(grep 'temporary password'  /var/log/mysqld.log | awk '{print $NF}')
+status $?
+
+echo -n "Perfoming password reset of root user :"
+echo "ALTER USER 'root'@'locahost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD &>> INandOUT
+status $?
+
+
