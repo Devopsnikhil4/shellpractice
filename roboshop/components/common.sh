@@ -4,6 +4,7 @@ ID=$(id -u)
 INandOUT="/tmp/${COMPONENT}.log"
 $APPUSER="roboshop"
 
+
 if [ $ID -ne 0 ] ; then
    echo -e "\e[31m This script is expected to be run by a root user or with a sudo privilage \e[0m"
    exit 1
