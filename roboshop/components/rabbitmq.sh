@@ -5,8 +5,8 @@ COMPONENT="rabbitmq"
 source components/common.sh
 
 echo -n "Downloading the $COMPONENT zip file :"
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash    
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash   &>> INandOUT  
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash &>> INandOUT
 status $?
 
 echo -n "Installing $COMPONENT :"
