@@ -18,9 +18,14 @@ systemctl enable rabbitmq-server  &>> INandOUT
 systemctl restart rabbitmq-server   &>> INandOUT
 status $?
 
-# rabbitmqctl add_user roboshop roboshop123
-# rabbitmqctl set_user_tags roboshop administrator
-# rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+echo -n "creating the $COMPONENT $APPUSER :"
+rabbitmqctl add_user roboshop roboshop123 &>> INandOUT
+status $?
+
+echo -n "configuring the $COMPONENT $APPUSER privilages :"
+rabbitmqctl set_user_tags roboshop administrator           &>> INandOUT
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"   &>> INandOUT
+status $?
 
 
 
