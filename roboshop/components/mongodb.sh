@@ -39,4 +39,4 @@ mongo < catalogue.js &>> INandOUT
 mongo < users.js     &>> INandOUT
 status $?
 
-echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******" 
+echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******"
