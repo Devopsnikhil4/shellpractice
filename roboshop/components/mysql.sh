@@ -48,4 +48,4 @@ cd $COMPONENT-main
 mysql -u root -pRoboShop@1 <shipping.sql &>> INandOUT
 status $?
 
-echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******"
+echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******" 
