@@ -99,7 +99,7 @@ MVN_PACKAGE (){
     echo -n "preparing $COMPONENT artifacts :"
     cd /home/$APPUSER/$COMPONENT
     mvn clean package &>> INandOUT
-    mv target/shipping-1.0.jar shipping.jar
+    mv target/$COMPONENT-1.0.jar $COMPONENT.jar
     status $?
 }
 
