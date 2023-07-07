@@ -24,4 +24,4 @@ systemctl enable $COMPONENT          &>> INandOUT
 systemctl restart $COMPONENT         &>> INandOUT
 status $?
 
-echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******"
+echo -e "****** \e[34m $COMPONENT Instatllation is Completed \e[0m******" 
