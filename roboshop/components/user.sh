@@ -4,4 +4,4 @@ COMPONENT=user
 
 source components/common.sh
 
-NODEJS
+NODEJS 
