@@ -9,7 +9,8 @@ echo -e "AMI ID is used to launch the EC2 is \e[32m $AMI_ID \e[0m"
 echo -e "SG ID is used to launch the EC2 is \e[32m $SG_ID \e[0m"
 
 echo -e "\e[34m *****Launch the server*****\e[0m"
-aws ec2 run-instances  --image-id $AMI_ID --instance-type t3.micro | jq .
+
+aws ec2 run-instances  --image-id $AMI_ID --instance-type t3.micro --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=mongodb}]' | jq .
     
 
 
