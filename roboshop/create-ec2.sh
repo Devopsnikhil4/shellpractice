@@ -26,7 +26,7 @@ echo -e "\e[34m ***** Launching $COMPONENT server is Completed *****\e[0m"
 
 echo -n "\e[34m ***** Creating DNS Record for the $COMPONENT: ***** \e[0m"
 sed -e "s/COMPONENT/$COMPONENT/" -e "s/IPADDRESS/$IPAddress/" route53.json > /tmp/record.json
-$ aws route53 change-resource-record-sets --hosted-zone-id $HOSTEDZONEID --change-batch file://tmp/record.json
+aws route53 change-resource-record-sets --hosted-zone-id $HOSTEDZONEID --change-batch file://tmp/record.json
 
 
 
