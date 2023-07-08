@@ -3,7 +3,7 @@
 #AMI_ID="ami-0c1d144c8fdd8d690"
 
 COMPONENT=$1
-if [ -z "$1" ]
+if [ -z "$1" ] ; then
     echo -e "\e[31m COMPONENT NAME IS NEEDED \e[0m"
     echo -e "\e[35m EX Usage : bash create-ec2 componentName \e[0m"
     exit 1
