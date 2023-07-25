@@ -137,4 +137,4 @@ PYTHON() {
     sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}"  /home/${APPUSER}/${COMPONENT}/${COMPONENT}.ini
     
     CONFIGURATION_SVC
-}
+} 
